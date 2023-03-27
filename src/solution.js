@@ -1,6 +1,6 @@
 export function solution(n, a) {
-    if(a.length == 1) return 1
-    if(a.length == 2) return 2
+    let counter = 0
+    a.forEach(operation => counter++)
     
-    return 0;
+    return counter;
 }
