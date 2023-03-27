@@ -24,4 +24,16 @@ describe('solution', () => {
         //Then
         expect(result).toBe(1);
     })
+
+    test('should execute all passed operations', () => {
+        // Given
+        const n = 1
+        const a = [1, 1]
+
+        // When
+        const result = solution(n, a)
+
+        // Then 
+        expect(result).toBe(2)
+    })
 })
