@@ -1,7 +1,7 @@
 import { solution } from "../src/solution"
 
 describe('solution', () => {
-    test('should return 0 when no operations passed and n is 1', () => {
+    test('should leave the counter at 0 when no operations passed and n is 1', () => {
         // Given
         const n = 1
         const a = []
@@ -11,5 +11,5 @@ describe('solution', () => {
 
         // Then
         expect(result).toBe(0)
-    })
+    });
 })
