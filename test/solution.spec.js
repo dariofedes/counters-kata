@@ -1,39 +1,34 @@
 import { solution } from "../src/solution"
 
 describe('solution', () => {
-    test('should leave the counter at 0 when no operations passed and n is 1', () => {
+    describe('given the number of counters equals 1', ()=> {
+        const numberOfCounters = 1
+        describe('and no operation number is higher than 1', () => {
+            test.each([
+                [[1], [1]],
+                [[2], [1, 1]],
+                [[5], [1, 1, 1, 1, 1]]
+            ])('should incremente the counter by 1 for each operation', (expectedCounter, operations)=> {
+                //When
+                const counter = solution(numberOfCounters, operations)
+    
+                //Then
+                expect(counter).toEqual(expectedCounter)
+            })
+        })
+    })
+
+    test('should return an array with all the counters set as number of counters', () => {
         // Given
-        const n = 1
-        const a = []
+        const numberOfCounters = 2
+        const expectedLength = numberOfCounters
+        const emptyOperations = []
 
         // When
-        const result = solution(n, a)
+        const result = solution(numberOfCounters, emptyOperations)
 
         // Then
-        expect(result).toBe(0)
-    });
-
-    test('should increase the counter by 1 when an increase operation is passed and n is 1', ()=> {
-        //Given
-        const n = 1;
-        const a = [1];
-
-        //When
-        const result = solution(n, a);
-        
-        //Then
-        expect(result).toBe(1);
+        expect(result).toHaveLength(expectedLength)
     })
 
-    test('should execute all passed operations', () => {
-        // Given
-        const n = 1
-        const a = [1, 1]
-
-        // When
-        const result = solution(n, a)
-
-        // Then 
-        expect(result).toBe(2)
-    })
 })
