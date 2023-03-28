@@ -18,9 +18,12 @@ describe('solution', () => {
         })
     })
 
-    test('should return an array with all the counters set as number of counters', () => {
+    test.each([
+        [2],
+        [3],
+        [10]
+    ])('should return an array with all the counters set as number of counters', (numberOfCounters) => {
         // Given
-        const numberOfCounters = 2
         const expectedLength = numberOfCounters
         const emptyOperations = []
 
@@ -29,6 +32,21 @@ describe('solution', () => {
 
         // Then
         expect(result).toHaveLength(expectedLength)
+    })
+
+    test('should increment the counter targeted by the number of the operation when it is less or equal to the number of counters', () => {
+        // Given
+        const numberOfCounters = 3
+        const targetCounter = 2
+        const expectedResult = [0, 2, 0]
+        const operations = [targetCounter, targetCounter]
+
+
+        // When
+        const result = solution(numberOfCounters, operations)
+
+        // Then
+        expect(result).toEqual(expectedResult)
     })
 
 })

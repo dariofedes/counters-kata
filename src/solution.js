@@ -1,8 +1,24 @@
-export function solution(n, a) {
-    if(n === 2) return [0, 0];
+export function solution(numberOfCounters, operations) {
+    let counters = initializeCounters()
+
+    operations.forEach(operation => {
+        incrementCounter(operation);
+    })
     
-    let counter = 0;
-    a.forEach(operation => counter++)
+    return counters;
+
+    function incrementCounter(operation) {
+        const targetCounterIndex = operation-1
+        counters[targetCounterIndex]++
+    }
+
+    function initializeCounters() {
+        const counters = []
     
-    return [counter];
+        for(let i = 0; i < numberOfCounters; i++) {
+            counters.push(0)
+        }
+    
+        return counters
+    }
 }
